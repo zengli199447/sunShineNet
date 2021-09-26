@@ -1,0 +1,133 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+
+    kotlinOptions {
+        jvmTarget = 1.8
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.sun.shine"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    api fileTree(dir: "libs", include: ["*.jar"])
+
+    api rootProject.ext.dependencies["kotlin_version"]
+    api rootProject.ext.dependencies["multidex_version"]
+    api rootProject.ext.dependencies["material_version"]
+    api rootProject.ext.dependencies["core_version"]
+    api rootProject.ext.dependencies["appcompat_version"]
+    api rootProject.ext.dependencies["constraintlayout_version"]
+    api rootProject.ext.dependencies["legacy_version"]
+
+    api rootProject.ext.dependencies["fragment_version"]
+    api rootProject.ext.dependencies["fragment_ktx_version"]
+
+    api rootProject.ext.dependencies["coroutines_core_version"]
+    api rootProject.ext.dependencies["coroutines_android_version"]
+
+    api rootProject.ext.dependencies["navigation_fragment_version"]
+    api rootProject.ext.dependencies["navigation_fragment_ui_version"]
+    api rootProject.ext.dependencies["navigation_fragment_ktx_version"]
+    api rootProject.ext.dependencies["navigation_fragment_ui_ktx_version"]
+
+    api rootProject.ext.dependencies["lifecycle_extensions_version"]
+    api rootProject.ext.dependencies["lifecycle_viewmodel_version"]
+    api rootProject.ext.dependencies["lifecycle_livedata_version"]
+    api rootProject.ext.dependencies["lifecycle_runtime_version"]
+    api rootProject.ext.dependencies["lifecycle_viewmodel_savedstate_version"]
+    annotationProcessor rootProject.ext.dependencies["lifecycle_compiler_version"]
+
+    api rootProject.ext.dependencies["hilt_android_version"]
+    kapt rootProject.ext.dependencies["hilt_android_version_kapt"]
+    api rootProject.ext.dependencies["hilt_lifecycle_viewmodel_version"]
+    kapt rootProject.ext.dependencies["hilt_lifecycle_viewmodel_version_kapt"]
+
+    api rootProject.ext.dependencies["room_runtime_version"]
+    api rootProject.ext.dependencies["room_ktx_version"]
+    kapt rootProject.ext.dependencies["room_compiler_kapt"]
+    api rootProject.ext.dependencies["work_runtime_ktx_version"]
+    api rootProject.ext.dependencies["work_gcm_version"]
+
+    api rootProject.ext.dependencies["koin_core_version"]
+    api rootProject.ext.dependencies["koin_android_version"]
+    api rootProject.ext.dependencies["koin_scope_version"]
+    api rootProject.ext.dependencies["koin_viewmodel_version"]
+    api rootProject.ext.dependencies["datastore_preferences_version"]
+    api rootProject.ext.dependencies["paging_runtime_ktx_version"]
+    api rootProject.ext.dependencies["asynclayoutinflater_version"]
+
+    api rootProject.ext.dependencies["viewpager2_version"]
+    api rootProject.ext.dependencies["okio_version"]
+    api rootProject.ext.dependencies["okhttp3_logging_interceptor_version"]
+    api rootProject.ext.dependencies["retrofit_version"]
+    api rootProject.ext.dependencies["retrofit_gson_version"]
+    api rootProject.ext.dependencies["PersistentCookieJar_version"]
+
+    api rootProject.ext.dependencies["shimmerlayout_version"]
+    api rootProject.ext.dependencies["lottie_version"]
+    api rootProject.ext.dependencies["yanzhenjie_permission_version"]
+    api rootProject.ext.dependencies["yanzhenjie_recyclerview_x_version"]
+    api rootProject.ext.dependencies["yanzhenjie_album_version"]
+    api rootProject.ext.dependencies["bip44forandroidlibrary_version"]
+    api rootProject.ext.dependencies["XBanner_version"]
+    api rootProject.ext.dependencies["coil_version"]
+    api rootProject.ext.dependencies["background_core_version"]
+    api rootProject.ext.dependencies["kroegerama_barcode_kaiteki_version"]
+    api rootProject.ext.dependencies["subsampling_scale_image_version"]
+    api rootProject.ext.dependencies["glide_version"]
+
+    api rootProject.ext.dependencies["anrwatchdog_version"]
+    debugImplementation rootProject.ext.dependencies["leakcanary_android_version"]
+    releaseImplementation rootProject.ext.dependencies["leakcanary_android_no_op_version"]
+    debugImplementation rootProject.ext.dependencies["doraemonkit_version"]
+    releaseImplementation rootProject.ext.dependencies["doraemonkit_version_no_op"]
+    api rootProject.ext.dependencies["bugly_crashreport_version"]
+    api rootProject.ext.dependencies["bugly_nativecrashreport_version"]
+
+    api rootProject.ext.dependencies["alpha_version"]
+
+    //debugImplementation rootProject.ext.dependencies["glance_version"]
+
+    implementation "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"
+
+
+}
